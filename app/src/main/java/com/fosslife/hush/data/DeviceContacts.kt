@@ -1,11 +1,11 @@
-package dev.callwarden.data
+package com.fosslife.hush.data
 
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.provider.ContactsContract.CommonDataKinds.Phone
 import android.provider.ContactsContract.Contacts
-import dev.callwarden.core.PhoneNumbers
+import com.fosslife.hush.core.PhoneNumbers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

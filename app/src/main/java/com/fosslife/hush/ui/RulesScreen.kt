@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -41,12 +41,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import dev.callwarden.core.Rule
-import dev.callwarden.core.RuleAction
-import dev.callwarden.core.RuleEngine
-import dev.callwarden.core.RuleType
-import dev.callwarden.core.RuleValidator
-import dev.callwarden.data.Store
+import com.fosslife.hush.core.Rule
+import com.fosslife.hush.core.RuleAction
+import com.fosslife.hush.core.RuleEngine
+import com.fosslife.hush.core.RuleType
+import com.fosslife.hush.core.RuleValidator
+import com.fosslife.hush.data.Store
 
 @Composable
 fun RulesScreen(store: Store) {

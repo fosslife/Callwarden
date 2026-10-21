@@ -2,5 +2,5 @@
 <resources>
     <!-- Only decides the window background before Compose draws, so it just needs
          to follow light/dark. Everything visible is Material 3 from Compose. -->
-    <style name="Theme.CallWarden" parent="@android:style/Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Hush" parent="@android:style/Theme.Material.Light.NoActionBar" />
 </resources>

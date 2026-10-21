@@ -1,4 +1,4 @@
-# CallWarden
+# Hush
 
 A small, open-source, offline call blocker for Android. You can block numbers by
 **pattern**, so a company that rotates through `+91 80 4718 xxxx` can't reach you.
@@ -30,16 +30,16 @@ The Rules tab has a **Test a number** box that shows which rule, if any, would c
 
 ## Writing a rule from a call you got
 
-The **Blocked** tab lists every call CallWarden screened, including the ones that rang through.
+The **Blocked** tab lists every call Hush screened, including the ones that rang through.
 Tap **Block…** on one and the rule editor opens with that number filled in — then you decide the
 pattern: trim the last digits for a *Starts with* rule, or replace them with `#` for a *Pattern*
-rule. CallWarden never guesses a pattern for you.
+rule. Hush never guesses a pattern for you.
 
 ## How it works
 
 - `ScreeningService` is an Android
   [`CallScreeningService`](https://developer.android.com/reference/android/telecom/CallScreeningService).
-  After you make CallWarden the phone's call-screening app (the app asks on first launch), Android
+  After you make Hush the phone's call-screening app (the app asks on first launch), Android
   asks it about every incoming call. The decision comes only from your local rules.
 - `core/Rules.kt` holds the matching engine. It's plain Kotlin with no Android dependencies, and
   it's covered by `app/src/test/.../RuleEngineTest.kt`.
@@ -73,5 +73,5 @@ on every push.
 
 ## License
 
-CallWarden is free software: you can redistribute it and/or modify it under the terms of the
+Hush is free software: you can redistribute it and/or modify it under the terms of the
 [GNU General Public License v3.0](LICENSE) as published by the Free Software Foundation.

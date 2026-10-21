@@ -1,13 +1,13 @@
-package dev.callwarden.service
+package com.fosslife.hush.service
 
 import android.telecom.Call
 import android.telecom.CallScreeningService
 import android.telecom.TelecomManager
-import dev.callwarden.core.RuleAction
-import dev.callwarden.core.RuleEngine
-import dev.callwarden.data.HIDDEN
-import dev.callwarden.data.LogEntry
-import dev.callwarden.data.Store
+import com.fosslife.hush.core.RuleAction
+import com.fosslife.hush.core.RuleEngine
+import com.fosslife.hush.data.HIDDEN
+import com.fosslife.hush.data.LogEntry
+import com.fosslife.hush.data.Store
 
 /**
  * Android calls this for every incoming call from a number that is not in the

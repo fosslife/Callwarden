@@ -7,20 +7,35 @@ plugins {
 }
 
 android {
-    namespace = "dev.callwarden"
+    namespace = "com.fosslife.hush"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.callwarden"
+        applicationId = "com.fosslife.hush"
         // CallScreeningService with the call-screening role needs Android 10 (API 29).
         minSdk = 29
         targetSdk = 36
         versionCode = 1
-        versionName = "0.1.0"
+        versionName = "1.0.0"
+    }
+
+    // Credentials live in ~/.gradle/gradle.properties, never in the repo. Absent (CI, F-Droid)
+    // means release builds come out unsigned instead of failing.
+    signingConfigs {
+        create("release") {
+            val path = findProperty("HUSH_UPLOAD_STORE_FILE") as String?
+            if (path != null) {
+                storeFile = file(path)
+                storePassword = property("HUSH_UPLOAD_STORE_PASSWORD") as String
+                keyAlias = property("HUSH_UPLOAD_KEY_ALIAS") as String
+                keyPassword = property("HUSH_UPLOAD_KEY_PASSWORD") as String
+            }
+        }
     }
 
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -38,9 +53,10 @@ android {
     }
 
     // No Google Play dependency-info blob in the APK; keeps builds reproducible for F-Droid.
+    // Kept in the bundle so Play Console can flag vulnerable SDK versions.
     dependenciesInfo {
         includeInApk = false
-        includeInBundle = false
+        includeInBundle = true
     }
 }
 

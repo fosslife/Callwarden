@@ -1,4 +1,4 @@
-package dev.callwarden.core
+package com.fosslife.hush.core
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

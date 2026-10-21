@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -28,8 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import dev.callwarden.BuildConfig
-import dev.callwarden.data.Store
+import com.fosslife.hush.BuildConfig
+import com.fosslife.hush.data.Store
 
 @Composable
 fun SettingsScreen(store: Store) {
@@ -48,7 +48,7 @@ fun SettingsScreen(store: Store) {
         val message = runCatching {
             val text = context.contentResolver.openInputStream(uri)!!.use { String(it.readBytes()) }
             "Imported ${store.importJson(text)} new rules"
-        }.getOrElse { "Import failed: not a CallWarden rules file" }
+        }.getOrElse { "Import failed: not a Hush rules file" }
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
@@ -96,7 +96,7 @@ fun SettingsScreen(store: Store) {
             style = MaterialTheme.typography.bodySmall,
         )
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            OutlinedButton(onClick = { exportLauncher.launch("callwarden-rules.json") }) { Text("Export rules") }
+            OutlinedButton(onClick = { exportLauncher.launch("hush-rules.json") }) { Text("Export rules") }
             OutlinedButton(onClick = { importLauncher.launch(arrayOf("application/json", "text/*", "application/octet-stream")) }) {
                 Text("Import rules")
             }
@@ -105,7 +105,7 @@ fun SettingsScreen(store: Store) {
         HorizontalDivider()
         Text("Privacy", style = MaterialTheme.typography.titleMedium)
         Text(
-            "CallWarden has no internet permission, so it physically cannot send anything off " +
+            "Hush has no internet permission, so it physically cannot send anything off " +
                 "your phone. No accounts, no analytics, no caller-ID lookups, no ads. Your rules, " +
                 "history and contacts stay on this device.",
             style = MaterialTheme.typography.bodyMedium,
@@ -113,7 +113,7 @@ fun SettingsScreen(store: Store) {
 
         HorizontalDivider()
         Text(
-            "CallWarden ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) · GPL-3.0",
+            "Hush ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE}) · GPL-3.0",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

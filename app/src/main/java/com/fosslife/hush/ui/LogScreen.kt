@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,12 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import dev.callwarden.core.Rule
-import dev.callwarden.core.RuleAction
-import dev.callwarden.core.RuleType
-import dev.callwarden.data.HIDDEN
-import dev.callwarden.data.LogEntry
-import dev.callwarden.data.Store
+import com.fosslife.hush.core.Rule
+import com.fosslife.hush.core.RuleAction
+import com.fosslife.hush.core.RuleType
+import com.fosslife.hush.data.HIDDEN
+import com.fosslife.hush.data.LogEntry
+import com.fosslife.hush.data.Store
 import java.text.DateFormat
 import java.util.Date
 
@@ -49,8 +49,8 @@ fun LogScreen(store: Store) {
                     when {
                         !settings.keepLog -> "History is turned off in Settings."
                         log.isEmpty() -> "No calls screened yet. Calls from saved contacts never " +
-                            "reach CallWarden, so they won't show up here."
-                        else -> "${log.size} screened calls (stored only on this phone)"
+                            "reach Hush, so they won't show up here."
+                        else -> "${log.size} screened call${if (log.size == 1) "" else "s"} (stored only on this phone)"
                     },
                     modifier = Modifier.weight(1f),
                     style = MaterialTheme.typography.bodyMedium,

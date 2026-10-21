@@ -1,4 +1,4 @@
-package dev.callwarden.core
+package com.fosslife.hush.core
 
 // Pure Kotlin (no Android imports) so the matching logic can be unit-tested on the JVM.
 

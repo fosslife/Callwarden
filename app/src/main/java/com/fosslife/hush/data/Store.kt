@@ -1,10 +1,10 @@
-package dev.callwarden.data
+package com.fosslife.hush.data
 
 import android.content.Context
 import android.util.AtomicFile
-import dev.callwarden.core.Rule
-import dev.callwarden.core.RuleAction
-import dev.callwarden.core.RuleType
+import com.fosslife.hush.core.Rule
+import com.fosslife.hush.core.RuleAction
+import com.fosslife.hush.core.RuleType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import org.json.JSONArray
@@ -90,7 +90,7 @@ class Store private constructor(context: Context) {
     }
 
     fun exportJson(): String = JSONObject()
-        .put("app", "CallWarden")
+        .put("app", "Hush")
         .put("version", 1)
         .put("rules", JSONArray(_rules.value.map { it.toJson() }))
         .toString(2)

@@ -14,3 +14,4 @@ captures/
 # Local Claude Code state. A shared .claude/settings.json or skill can still be committed.
 .claude/settings.local.json
 .claude/.headroom_*
+.serena/

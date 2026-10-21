@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import android.app.role.RoleManager
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import dev.callwarden.data.Store
+import com.fosslife.hush.data.Store
 
 class MainActivity : ComponentActivity() {
     private var screeningEnabled by mutableStateOf(false)
@@ -22,8 +22,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         val store = Store.get(this)
         setContent {
-            CallWardenTheme {
-                CallWardenApp(store, screeningEnabled, onEnableScreening = ::requestRole)
+            HushTheme {
+                HushApp(store, screeningEnabled, onEnableScreening = ::requestRole)
             }
         }
     }

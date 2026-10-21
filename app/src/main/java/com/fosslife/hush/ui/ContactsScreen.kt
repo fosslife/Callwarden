@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import android.Manifest
 import android.content.Context
@@ -41,8 +41,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.LifecycleResumeEffect
-import dev.callwarden.data.ContactItem
-import dev.callwarden.data.DeviceContacts
+import com.fosslife.hush.data.ContactItem
+import com.fosslife.hush.data.DeviceContacts
 import kotlinx.coroutines.launch
 
 private val CONTACT_PERMISSIONS = arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS)
@@ -74,7 +74,7 @@ fun ContactsScreen() {
     } else {
         Column(Modifier.fillMaxSize().padding(24.dp)) {
             Text(
-                "CallWarden can block saved contacts by switching on Android's built-in " +
+                "Hush can block saved contacts by switching on Android's built-in " +
                     "\"send to voicemail\" option for them. This needs access to your contacts. " +
                     "Contacts are read on this phone only and never uploaded anywhere.",
                 style = MaterialTheme.typography.bodyLarge,

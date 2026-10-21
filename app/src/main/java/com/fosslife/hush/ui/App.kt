@@ -1,4 +1,4 @@
-package dev.callwarden.ui
+package com.fosslife.hush.ui
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -40,7 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import dev.callwarden.data.Store
+import com.fosslife.hush.data.Store
 
 private enum class Tab(val title: String, val icon: ImageVector) {
     Rules("Rules", Icons.Filled.Lock),
@@ -50,7 +50,7 @@ private enum class Tab(val title: String, val icon: ImageVector) {
 }
 
 @Composable
-fun CallWardenTheme(content: @Composable () -> Unit) {
+fun HushTheme(content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
     val colors = when {
@@ -64,10 +64,10 @@ fun CallWardenTheme(content: @Composable () -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CallWardenApp(store: Store, screeningEnabled: Boolean, onEnableScreening: () -> Unit) {
+fun HushApp(store: Store, screeningEnabled: Boolean, onEnableScreening: () -> Unit) {
     var tab by rememberSaveable { mutableStateOf(Tab.Rules) }
     Scaffold(
-        topBar = { TopAppBar(title = { Text(if (tab == Tab.Rules) "CallWarden" else tab.title) }) },
+        topBar = { TopAppBar(title = { Text(if (tab == Tab.Rules) "Hush" else tab.title) }) },
         bottomBar = {
             NavigationBar {
                 Tab.entries.forEach { t ->
@@ -103,7 +103,7 @@ private fun ScreeningBanner(onEnable: () -> Unit) {
             Icon(Icons.Filled.Warning, contentDescription = null)
             Spacer(Modifier.width(12.dp))
             Text(
-                "Call blocking is off. Set CallWarden as your call-screening app.",
+                "Call blocking is off. Set Hush as your call-screening app.",
                 modifier = Modifier.weight(1f),
                 style = MaterialTheme.typography.bodyMedium,
             )
